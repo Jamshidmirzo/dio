@@ -10,7 +10,9 @@ class Product {
   String description;
   Categorys category;
   List images;
+  int price;
   Product({
+    required this.price,
     required this.id,
     required this.title,
     required this.description,
@@ -25,11 +27,13 @@ class Product {
       'description': description,
       'category': category.toMap(),
       'images': images,
+      'price':price
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
+      price: map['price'] as int,
       id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
